@@ -16,18 +16,18 @@ public class App {
             sc.nextLine();
             switch(opcion){
                 case 1:
-                    System.out.print("Ingrese nombre del dispositivo: ");
+                    System.out.print("Ingrese el nombre del dispositivo: ");
                     String nombre = sc.nextLine();
 
-                    System.out.print("Ingrese serial del dispositivo: ");
+                    System.out.print("Ingrese el serial del dispositivo: ");
                     String serial = sc.nextLine();
 
                     boolean agregado = manager.addDevice(nombre, serial);
 
                     if (agregado) {
-                        System.out.println("Dispositivo agregado correctamente.");
+                        System.out.println("Dispositivo agregado.");
                     } else {
-                        System.out.println("Error: datos inválidos o serial duplicado.");
+                        System.out.println("datos inválidos o serial duplicado.");
                     }
                     break;
 
@@ -51,8 +51,9 @@ public class App {
                         System.out.println("No hay dispositivos registrados.");
                     } else {
                         System.out.println("Lista de dispositivos:");
-                        for (Device d : manager.listarDevices()) {
-                            System.out.println("Nombre: " + d.getNombre() + " | Serial: " + d.getSerial());
+                        for (Device device : manager.listarDevices()) {
+                            System.out.println("Nombre: " + device.getNombre());
+                            System.out.println("Serial: " + device.getSerial());
                         }
                     }
                     break;
