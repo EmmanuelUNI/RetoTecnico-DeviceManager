@@ -5,7 +5,7 @@ public class DeviceManager {
 
 
     public boolean addDevice(String nombre, String serial){
-        if(nombre != null && serial != null && !nombre.trim().isEmpty() && !serial.trim().isEmpty() && !DeviceExiste(serial)){
+        if(nombre != null && serial != null && !nombre.trim().isEmpty() && !serial.trim().isEmpty() && !deviceExiste(serial)){
             Device nuevo = new Device(nombre, serial);
             listaDevice.add(nuevo);
             return true;
@@ -27,10 +27,10 @@ public class DeviceManager {
         
     }
 
-    public boolean DeviceExiste(String serial) {
+    public boolean deviceExiste(String serial) {
     for (Device device:listaDevice) {
             if (device.getSerial().equals(serial)) {
-            return true;
+                return true;
             }
         }
         return false;
